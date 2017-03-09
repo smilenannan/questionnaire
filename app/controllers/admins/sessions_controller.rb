@@ -1,4 +1,4 @@
 class Admins::SessionsController < Devise::SessionsController
-  def index
+  def create
   end
 end
