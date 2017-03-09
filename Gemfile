@@ -60,7 +60,3 @@ group :development do
   gem 'rubocop', require: false
 end
 
-gem 'therubyracer', platforms: :ruby
-gem 'less-rails'
-gem 'twitter-bootstrap-rails'
-
