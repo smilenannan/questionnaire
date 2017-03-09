@@ -54,7 +54,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'slim-rails'
 gem 'config'
-gem 'devise'
 
 group :development do
   gem 'rubocop', require: false
