@@ -1,0 +1,2 @@
+class QuestionTheme < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class QuestionThemesController < ApplicationController
+end
