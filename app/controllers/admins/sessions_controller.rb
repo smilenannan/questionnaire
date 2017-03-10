@@ -7,9 +7,9 @@ class Admins::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    redirect_to admins_home_index_path  
+  end
 
   # DELETE /resource/sign_out
   # def destroy
