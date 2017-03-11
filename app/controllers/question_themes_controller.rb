@@ -12,6 +12,6 @@ class QuestionThemesController < ApplicationController
   def new
     # default value must be changed after connected to admin_home
     default = 1
-    @question_theme = QuestionTheme.new({admin_id: default})
+    @question_theme = QuestionTheme.new({admin_id: default, company_id: default})
   end
 end
