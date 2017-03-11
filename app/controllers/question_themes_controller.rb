@@ -1,5 +1,5 @@
 class QuestionThemesController < ApplicationController
   def index
-    question_themes = QuestionThemes.all  
+    @question_themes = QuestionTheme.all  
   end
 end

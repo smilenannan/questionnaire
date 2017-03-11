@@ -1,2 +1,9 @@
 h1  questions
 
+table
+  tbody
+    - @question_themes.each do |question_theme|
+      tr
+        td = question_theme.title 
+        td = link_to 'edit', edit_question_theme_path(question_theme.id)
+        td = link_to 'delete', question_theme_path(question_theme.id), method: :delete, data: {confirm: 'Are you sure?'}
