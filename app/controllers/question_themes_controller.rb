@@ -8,4 +8,10 @@ class QuestionThemesController < ApplicationController
     @question_theme.destroy
     redirect_to question_themes_path
   end
+
+  def new
+    # default value must be changed after connected to admin_home
+    default = 1
+    @question_theme = QuestionTheme.new({admin_id: default})
+  end
 end
