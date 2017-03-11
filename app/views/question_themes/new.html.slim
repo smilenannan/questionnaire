@@ -1,5 +1,9 @@
 h1 new question
 
+= form_for @question, url: questions_path do |f| 
+  p
+    = f.submit
+
 = form_for @question_theme do |f|
   p
     = f.label :title
