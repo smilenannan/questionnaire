@@ -1,0 +1,23 @@
+h1 new question
+
+= form_for @question, url: questions_path do |f| 
+  p
+    = f.label :title
+    br
+    = f.text_field :title
+    br
+    = f.select :category, options_for_select(['textbox', 'textarea', 'checkbox', 'radiobutton', 'selectbox'])
+    br
+    = f.hidden_field :question_theme_id, :value=>@question_theme.id
+    = f.submit(['Add question'])
+
+= form_for @question_theme do |f|
+  p
+    = f.label :title
+    br
+    = f.text_field :title
+    p
+      - @question_theme.questions.each do |question| 
+        = question.title
+    br
+    = f.submit
