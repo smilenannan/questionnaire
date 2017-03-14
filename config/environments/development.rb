@@ -63,6 +63,4 @@ Rails.application.configure do
     :password => Settings.mail[:password],
     :authentication => 'login',
   }
-
-
 end
