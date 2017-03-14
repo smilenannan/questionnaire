@@ -1,6 +1,4 @@
-class Admins::HomeController < ApplicationController
-  before_action :authenticate_admin!
-
+class Admins::HomeController < Admins::BaseController
   def index
   end
 end
