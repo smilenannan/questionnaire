@@ -61,7 +61,3 @@ gem 'slim-rails'
 gem 'config'
 
 gem 'devise'
-
-group :development do
-  gem 'rubocop', require: false
-end
