@@ -1,44 +1,10 @@
-h1 new question
+h1 new question_theme
 
-/= form_for @question, url: add_questions_path do |f| 
-/  p
+= form_for @question_theme do |f|
+  p
     = f.label :title
     br
     = f.text_field :title
     br
-    = f.select :category, options_for_select(['textbox', 'textarea', 'checkbox', 'radiobutton', 'selectbox'])
-    br
-    = f.submit(['Add Question'])
+    = f.submit
 
-/= form_for @question_theme do |f|
-/  p
-    = f.label :title
-    br
-    = f.text_field :title
-    br
-    - @question_theme.questions.each do |question|
-      = question.title
-      /- if question.category == '' then
-      /  = question.text_field 
-      br
-    = f.submit(['Create New Questions'])
-
-= form_tag(:action=>'create') do
-  = label_tag :question_theme_title
-  br
-  = text_field_tag :question_theme_title, session[:question_theme_title]
-  
-  h3 Questions
-
-  - @question_theme.questions.each do |question|
-    = question.title
-    br
-  = label_tag :question_title
-  br
-  = text_field_tag :question_title
-  br
-  = select_tag :category, options_for_select(['textbox', 'textarea', 'checkbox', 'radiobutton', 'selectbox'])
-  br
-  = submit_tag(['Add Question'], name: 'add')
-  br
-  = submit_tag(['Create New Questions'], name: 'create')
