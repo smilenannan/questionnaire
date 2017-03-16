@@ -11,6 +11,7 @@ p
           tr
             td = question.title
             td = link_to 'edit', edit_question_theme_question_path(:question_theme_id=>@question_theme.id, :id=>question.id)  
+            td = link_to 'delete', question_theme_question_path(:question_theme_id=>@question_theme.id, :id=>question.id), method: :delete, data: {confirm: "Are you sure?"} 
           br
   p
   = form_for @question, url: question_theme_questions_path do |f|

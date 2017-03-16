@@ -24,4 +24,11 @@ class QuestionsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+
+    redirect_to question_theme_questions_path(params[:question_theme_id])
+  end
 end
