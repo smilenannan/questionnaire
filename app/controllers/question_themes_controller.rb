@@ -19,9 +19,11 @@ class QuestionThemesController < ApplicationController
     default = 1
     @question_theme = QuestionTheme.new(params.require(:question_theme).permit(:title))
     @question_theme.admin_id = default
-    question_theme_id = @question_theme.tap(&:save).id
-
-    redirect_to question_theme_questions_path(question_theme_id)
+    if question_theme_id = @question_theme.tap(&:save).id
+      redirect_to question_theme_questions_path(question_theme_id)
+    else 
+      render :new
+    end
   end
 
   def edit
