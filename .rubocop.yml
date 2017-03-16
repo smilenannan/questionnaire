@@ -32,7 +32,7 @@ Rails:
 # The project has a soft limit of 80 chars for line length, but up to 100 chars
 # are allowed in some cases.
 Metrics/LineLength:
-  Max: 100
+  Max: 120
   AllowHeredoc: true
   AllowURI: true
 
