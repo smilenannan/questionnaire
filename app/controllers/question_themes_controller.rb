@@ -23,4 +23,17 @@ class QuestionThemesController < ApplicationController
 
     redirect_to question_theme_questions_path(question_theme_id)
   end
+
+  def edit
+    @question_theme = QuestionTheme.find(params[:id])
+  end
+
+  def update
+    @question_theme = QuestionTheme.find(params[:id])
+    if @question_theme.update(params.require(:question_theme).permit(:title))
+      redirect_to question_theme_questions_path(@question_theme.id)
+    else
+      render :edit
+    end
+  end
 end

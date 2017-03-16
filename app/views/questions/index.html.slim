@@ -1,4 +1,7 @@
 h1 questions
 
-p
-  h2 =@question_theme.title 
+table
+  tbody
+      tr
+        td = @question_theme.title 
+        td = link_to 'edit', edit_question_theme_path(@question_theme.id)
