@@ -15,11 +15,12 @@ class QuestionThemesController < ApplicationController
   end
   
   def create
-    p params
     # this will be changed after connected to admin
     default = 1
     @question_theme = QuestionTheme.new(params.require(:question_theme).permit(:title))
     @question_theme.admin_id = default
-    @question_theme.save
+    question_theme_id = @question_theme.tap(&:save).id
+
+    redirect_to question_theme_questions_path(question_theme_id)
   end
 end
