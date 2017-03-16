@@ -1,0 +1,12 @@
+h1 edit question title
+
+= form_for @question, url: question_theme_question_path(:question_theme_id=>@question.question_theme_id, :id=>@question.id) do |f|
+  = f.label :title
+  br
+  = f.text_field :title
+  br 
+  = f.submit
+  
+p
+  = link_to 'Back', question_theme_questions_path(@question.question_theme_id)
+ 

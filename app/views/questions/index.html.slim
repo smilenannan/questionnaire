@@ -7,9 +7,12 @@ table
         td = link_to 'edit', edit_question_theme_path(@question_theme.id)
 p
   - @question_theme.questions.each do |question|
-    = question.title
-    br
-p
+      tbody
+          tr
+            td = question.title
+            td = link_to 'edit', edit_question_theme_question_path(:question_theme_id=>@question_theme.id, :id=>question.id)  
+          br
+  p
   = form_for @question, url: question_theme_questions_path do |f|
     = f.label :title
     br

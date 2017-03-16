@@ -1,7 +1,5 @@
 class QuestionsController < ApplicationController
   def index
-    p 'debug!!!!!!!!!'
-    p params
     @question_theme = QuestionTheme.find(params[:question_theme_id])
     @question = Question.new(:question_theme_id=>params[:question_theme_id])
   end
@@ -12,5 +10,18 @@ class QuestionsController < ApplicationController
     @question.save
 
     redirect_to question_theme_questions_path(params[:question_theme_id])
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    if @question.update(params.require(:question).permit(:title))
+      redirect_to question_theme_questions_path(params[:question_theme_id])
+    else
+      render :edit
+    end
   end
 end
