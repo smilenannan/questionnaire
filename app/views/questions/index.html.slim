@@ -5,3 +5,16 @@ table
       tr
         td = @question_theme.title 
         td = link_to 'edit', edit_question_theme_path(@question_theme.id)
+p
+  - @question_theme.questions.each do |question|
+    = question.title
+    br
+p
+  = form_for @question, url: question_theme_questions_path do |f|
+    = f.label :title
+    br
+    = f.text_field :title
+    br
+    = f.select :category, options_for_select(['textbox', 'textarea', 'checkbox', 'radiobutton', 'selectbox'])
+    br 
+    = f.submit(['Add Question'])
