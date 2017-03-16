@@ -6,3 +6,6 @@ h1 edit question theme title
   = f.text_field :title
   br
   = f.submit
+
+p
+  = link_to 'Back', question_theme_questions_path(@question_theme.id)
