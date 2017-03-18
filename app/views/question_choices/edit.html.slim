@@ -1,0 +1,12 @@
+h1 edit question choice title
+
+= form_for @question_choice, url: question_theme_question_question_choice_path(:question_theme_id=>@question_choice.question.question_theme_id, :question_id=>@question_choice.question_id, :id=>@question_choice.id) do |f|
+  = f.label :choice
+  br
+  = f.text_area :choice
+  br 
+  = f.submit
+  
+p
+  = link_to 'Back', question_theme_questions_path(@question_choice.question.question_theme_id)
+ 

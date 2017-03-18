@@ -7,6 +7,17 @@ class QuestionChoicesController < ApplicationController
     redirect_to question_theme_questions_path(params[:question_theme_id])
   end
 
+  def edit
+    @question_choice = QuestionChoice.find(params[:id])
+  end
+
+  def update
+    @question_choice = QuestionChoice.find(params[:id])
+    @question_choice.update(params.require(:question_choice).permit(:choice))
+
+    redirect_to question_theme_questions_path(params[:question_theme_id])
+  end
+
   def destroy
     @question_choice = QuestionChoice.find(params[:id])
     @question_choice.destroy
