@@ -17,8 +17,8 @@ p
           - question.question_choices.each do |question_choice|
             tr
               td = question_choice.choice
-              td = link_to 'edit', edit_question_theme_question_path(:question_theme_id=>@question_theme.id, :id=>question.id)  
-              td = link_to 'delete', question_theme_question_path(:question_theme_id=>@question_theme.id, :id=>question.id), method: :delete, data: {confirm: "Are you sure?"} 
+              td = link_to 'edit', edit_question_theme_question_question_choice_path(:question_theme_id=>@question_theme.id, :question_id=>question.id, :id=>question_choice.id)  
+              td = link_to 'delete', question_theme_question_question_choice_path(:question_theme_id=>@question_theme.id, :question_id=>question.id, :id=>question_choice.id), method: :delete, data: {confirm: "Are you sure?"} 
             br
           - if question.category=='checkbox' || question.category=='radiobutton' || question.category=='selectbox'
             = form_for @question_choice, url: question_theme_question_question_choices_path(:question_theme_id=>@question_theme.id, :question_id=>question.id) do |f|

@@ -6,4 +6,11 @@ class QuestionChoicesController < ApplicationController
 
     redirect_to question_theme_questions_path(params[:question_theme_id])
   end
+
+  def destroy
+    @question_choice = QuestionChoice.find(params[:id])
+    @question_choice.destroy
+    
+    redirect_to question_theme_questions_path(params[:question_theme_id])
+  end
 end
