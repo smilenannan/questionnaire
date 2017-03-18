@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
   def index
     @question_theme = QuestionTheme.find(params[:question_theme_id])
     @question = Question.new(:question_theme_id=>params[:question_theme_id])
+    @question_choice = QuestionChoice.new
   end
 
   def create
