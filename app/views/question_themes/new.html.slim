@@ -1,4 +1,4 @@
-h1 new question_theme
+h1 new question theme
 
 = form_for @question_theme do |f|
   p
@@ -7,3 +7,9 @@ h1 new question_theme
     = f.text_field :title
     br
     = f.submit
+    br
+
+    - if @question_theme.errors.any?
+      = @question_theme.errors.messages[:title][0]
+
+= link_to 'Back', question_themes_path

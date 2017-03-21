@@ -1,16 +1,19 @@
 class QuestionsController < ApplicationController
   def index
     @question_theme = QuestionTheme.find(params[:question_theme_id])
-    @question = Question.new(:question_theme_id=>params[:question_theme_id])
-    @question_choice = QuestionChoice.new
+    #@question = Question.new(:question_theme_id=>params[:question_theme_id])
+    #@question_choice = QuestionChoice.new
   end
 
   def create
     @question_theme = QuestionTheme.find(params[:question_theme_id])
-    @question = @question_theme.questions.build(params.require(:question).permit(:title, :category))
-    @question.save
-
-    redirect_to question_theme_questions_path(params[:question_theme_id])
+    @question = Question.new(params.require(:question).permit(:title, :category))
+    @question.question_theme_id = @question_theme.id
+    if @question.save
+      redirect_to :action=>:index
+    else
+      render :index
+    end
   end
 
   def edit

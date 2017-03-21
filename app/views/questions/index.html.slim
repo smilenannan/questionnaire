@@ -21,17 +21,23 @@ p
               td = link_to 'delete', question_theme_question_question_choice_path(:question_theme_id=>@question_theme.id, :question_id=>question.id, :id=>question_choice.id), method: :delete, data: {confirm: "Are you sure?"} 
             br
           - if question.category=='checkbox' || question.category=='radiobutton' || question.category=='selectbox'
-            = form_for @question_choice, url: question_theme_question_question_choices_path(:question_theme_id=>@question_theme.id, :question_id=>question.id) do |f|
+            = form_for question.question_choices.build, url: question_theme_question_question_choices_path(:question_theme_id=>@question_theme.id, :question_id=>question.id) do |f|
               = f.text_area :choice
               = f.submit(['Add Choice'])
           br
 
   p
-  = form_for @question, url: question_theme_questions_path do |f|
-    = f.label :title
-    br
-    = f.text_field :title
-    br
-    = f.select :category, options_for_select(['textbox', 'textarea', 'checkbox', 'radiobutton', 'selectbox'])
-    br 
-    = f.submit(['Add Question'])
+    = form_for @question_theme.questions.build, url: question_theme_questions_path do |f|
+      = f.label :title
+      br
+      = f.text_field :title
+      br
+      = f.select :category, options_for_select(['textbox', 'textarea', 'checkbox', 'radiobutton', 'selectbox'])
+      br 
+      = f.submit(['Add Question'])
+      br
+      
+      - if @question.present? && @question.errors.any?
+        = @question.errors.messages[:title][0]
+
+= link_to 'To Admin Home', question_themes_path
