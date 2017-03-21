@@ -7,5 +7,7 @@ h1 edit question theme title
   br
   = f.submit
 
+- if @question_theme.errors.any?
+  = @question_theme.errors[:title][0]
 p
   = link_to 'Back', question_theme_questions_path(@question_theme.id)

@@ -6,7 +6,10 @@ h1 edit question title
   = f.text_field :title
   br 
   = f.submit
-  
+
+- if @question.errors.any?
+  = @question.errors[:title][0]  
+
 p
   = link_to 'Back', question_theme_questions_path(@question.question_theme_id)
  

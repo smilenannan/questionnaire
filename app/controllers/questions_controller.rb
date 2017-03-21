@@ -1,8 +1,6 @@
 class QuestionsController < ApplicationController
   def index
     @question_theme = QuestionTheme.find(params[:question_theme_id])
-    #@question = Question.new(:question_theme_id=>params[:question_theme_id])
-    #@question_choice = QuestionChoice.new
   end
 
   def create
@@ -23,7 +21,7 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     if @question.update(params.require(:question).permit(:title))
-      redirect_to question_theme_questions_path(params[:question_theme_id])
+      redirect_to :action=>:index
     else
       render :edit
     end
