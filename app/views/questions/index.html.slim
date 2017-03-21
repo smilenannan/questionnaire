@@ -25,7 +25,7 @@ p
               = f.text_area :choice
               = f.submit(['Add Choice'])
             - if @question_choice.present? && @question_choice.errors.any?
-              = @question_choice.errors.messages[:title][0]
+              = @question_choice.errors.messages[:choice][0]
           br
 
   p
